@@ -2,3 +2,27 @@
 server:
   # 服务器的HTTP端口，默认为8080
   port: 7090
+spring:
+  datasource:
+    # 例子：jdbc:postgresql://192.168.100.10:6432/postgres?prepareThreshold=0&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&stringtype=unspecified
+    url: jdbc:postgresql://localhost:5432/my_local_pgsql
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0 # 指定redis的分库(共16个,0-15)
+mybatis-plus:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.demo.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  #开启驼峰命名
+#showSql
+logging:
+  config: classpath:log4j2.xml
+  level:
+    com.example.demo.mapper: debug

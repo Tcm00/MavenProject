@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.read.builder.ExcelReaderBuilder;
+
 import com.example.demo.pojo.Info;
 import org.apache.catalina.User;
 import org.apache.poi.ss.usermodel.*;
@@ -39,18 +38,18 @@ public class TestController {
     @RequestMapping("/import")
     public void exportList(@RequestPart("file") MultipartFile file) throws IOException {
         System.out.println("我进来了");
-        List<Info> userList = EasyExcel.read(file.getInputStream())
-                .head(Info.class)
-                .sheet(0)
-                .sheetName("test1")
-                .headRowNumber(2)
-                .autoTrim(true)
-                .doReadSync();
-        for (Info info : userList) {
-            System.out.println(info);
-        }
-        writeListToTxtFile(userList, "file.txt");
-        System.out.println("导入成功!" + userList.size());
+//        List<Info> userList = EasyExcel.read(file.getInputStream())
+//                .head(Info.class)
+//                .sheet(0)
+//                .sheetName("test1")
+//                .headRowNumber(2)
+//                .autoTrim(true)
+//                .doReadSync();
+//        for (Info info : userList) {
+//            System.out.println(info);
+//        }
+//        writeListToTxtFile(userList, "file.txt");
+//        System.out.println("导入成功!" + userList.size());
     }
 
     public static void writeListToTxtFile(List<Info> userList, String filePath) {
