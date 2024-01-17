@@ -10,8 +10,7 @@
         <!--控制台输出-->
         <Console name="console" target="SYSTEM_OUT">
             <!--日志样式pattern-->
-            <PatternLayout
-                    pattern="%highlight{[%d{yyyy-MM-dd HH:mm:ss.SSS}] - [%p] - [%c:%L] - [Method = %M] - [%m]}%n"/>
+            <PatternLayout pattern="%highlight{[%d{yyyy-MM-dd HH:mm:ss.SSS}] - [%p] - [%c:%L] - [Method = %M] - [%m]}%n"/>
         </Console>
 
         <!--全部日志输出-->
