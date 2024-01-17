@@ -10,9 +10,11 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.security.auth.message.AuthException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -31,7 +33,7 @@ public class AntiShakeAOP {
     private RedisUtil redisUtil;
 
     @Around(value = "@annotation(com.example.demo.annotation.Antishake)")
-    public Object antiShake(ProceedingJoinPoint pjp) {
+    public Object antiShake(ProceedingJoinPoint pjp)  {
         // 获取调用方法的信息和签名信息
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         // 获取方法
@@ -55,18 +57,11 @@ public class AntiShakeAOP {
                 throw new RuntimeException(e);
             }
         } else {
-            log.error("请勿重复点击");
-            // 设置 HTTP 响应提示
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.setContentType("application/json;charset=UTF-8");
             try {
-                response.getWriter().write("请勿重复点击");
-                response.getWriter().flush();
-                response.getWriter().close();
-            } catch (IOException e) {
+                throw new AuthException("请勿重复点击");
+            } catch (AuthException e) {
                 throw new RuntimeException(e);
             }
-            return null;
         }
     }
 
