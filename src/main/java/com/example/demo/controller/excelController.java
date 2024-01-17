@@ -2,9 +2,9 @@ package com.example.demo.controller;
 
 
 
-import cn.afterturn.easypoi.excel.ExcelExportUtil;
-import cn.afterturn.easypoi.excel.entity.ExportParams;
-import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
+//import cn.afterturn.easypoi.excel.ExcelExportUtil;
+//import cn.afterturn.easypoi.excel.entity.ExportParams;
+//import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import com.example.demo.pojo.CourseEntity;
@@ -39,8 +39,9 @@ public class excelController {
             list.add(new StudentEntity(String.valueOf(i), "学生姓名" + i, i, dateTime, dateTime1));
         }
 
-        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("计算机一班学生", "学生"),
-                StudentEntity.class, list);
+//        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("计算机一班学生", "学生"),
+//                StudentEntity.class, list);
+        Workbook workbook = null;
 
         try {
 //            response.flushBuffer();
@@ -79,8 +80,9 @@ public class excelController {
 
         entityArrayList.add(courseEntity);
 
-        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("2412312",  "sheet页001"),
-                CourseEntity.class, entityArrayList);
+//        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("2412312",  "sheet页001"),
+//                CourseEntity.class, entityArrayList);
+        Workbook workbook = null;
 
         try {
 //            response.flushBuffer();

@@ -1,7 +1,7 @@
 package com.example.demo.pojo;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
-import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+//import cn.afterturn.easypoi.excel.annotation.Excel;
+//import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ExcelTarget("studentEntity")
+//@ExcelTarget("studentEntity")
 @TableName("\"StudentEntity\"")
 public class StudentEntity implements Serializable {
     /**
@@ -25,20 +25,20 @@ public class StudentEntity implements Serializable {
     /**
      * 学生姓名
      */
-    @Excel(name = "学生姓名", height = 20, width = 30, isImportField = "true_st")
+//    @Excel(name = "学生姓名", height = 20, width = 30, isImportField = "true_st")
     private String name;
     /**
      * 学生性别
      */
-    @Excel(name = "学生性别", replace = {"男_1", "女_2"}, suffix = "生", isImportField = "true_st")
+//    @Excel(name = "学生性别", replace = {"男_1", "女_2"}, suffix = "生", isImportField = "true_st")
     private int sex;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // 设置日期格式
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @Excel(name = "出生日期", databaseFormat = "yyyyMMddHHmmss", format = "yyyy-MM-dd", isImportField = "true_st", width = 20)
+//    @Excel(name = "出生日期", databaseFormat = "yyyyMMddHHmmss", format = "yyyy-MM-dd", isImportField = "true_st", width = 20)
     private Date birthday;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // 设置日期格式
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @Excel(name = "进校日期", databaseFormat = "yyyyMMddHHmmss", format = "yyyy-MM-dd")
+//    @Excel(name = "进校日期", databaseFormat = "yyyyMMddHHmmss", format = "yyyy-MM-dd")
     private Date registration_date;
 
     public StudentEntity(StudentEntity other) {

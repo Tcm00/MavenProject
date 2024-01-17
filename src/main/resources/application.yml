@@ -18,7 +18,7 @@ mybatis-plus:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.demo.pojo
   configuration:
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true #映射的时候映射为驼峰
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
   #开启驼峰命名
 #showSql
